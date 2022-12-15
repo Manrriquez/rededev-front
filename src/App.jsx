@@ -1,4 +1,3 @@
-import './App.css'
 import { useSelector } from 'react-redux';
 import MyRoutes from './routes/index'
 import themes from './config/theme/index'
