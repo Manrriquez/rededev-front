@@ -24,19 +24,14 @@ import {
     Switch,
     Typography
 } from '@mui/material';
-
-// third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
-
-// import MainCard from '../../ui-component/cards/MainCard';
-// import Transitions from '../../ui-component/extended/Transitions';
-// import UpgradePlanCard from './UpgradePlanCard';
+import MainCard from '../Cards/MainCard';
+import Transitions from '../Animations/Transitions';
+import UpgradePlanCard from '../Cards/UpgradePlanCard';
 import User1 from '../../assets/img/user-round.svg';
-
-// assets
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
 
-// ==============================|| PROFILE MENU ||============================== //
+
 
 const ProfileSection = () => {
     const theme = useTheme();
@@ -89,7 +84,10 @@ const ProfileSection = () => {
             <Chip sx={{
                     height: '48px',
                     alignItems: 'center',
-                    borderRadius: '27px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    borderRadius: '50%',
+                    padding: 0,
                     transition: 'all .2s ease-in-out',
                     borderColor: theme.palette.secondary.light,
                     backgroundColor: theme.palette.secondary.light,
@@ -110,7 +108,7 @@ const ProfileSection = () => {
                         src={User1}
                         sx={{
                             ...theme.typography.mediumAvatar,
-                            margin: '8px 0 8px 8px !important',
+                            // margin: '8px 0 8px 8px !important',
                             cursor: 'pointer'
                         }}
                         ref={anchorRef}
@@ -119,7 +117,7 @@ const ProfileSection = () => {
                         color="inherit"
                     />
                 }
-                label={<IconSettings stroke={1.5} size="1.5rem" color={theme.palette.secondary.main} />}
+                // label={<IconSettings stroke={1.5} size="1.5rem" color={theme.palette.secondary.main} />}
                 variant="outlined"
                 ref={anchorRef}
                 aria-controls={open ? 'menu-list-grow' : undefined}
