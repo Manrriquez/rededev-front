@@ -25,10 +25,12 @@ import {
     Typography
 } from '@mui/material';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import MainCard from '../Cards/MainCard';
-import Transitions from '../Animations/Transitions';
-import UpgradePlanCard from '../Cards/UpgradePlanCard';
-import User1 from '../../assets/img/user-round.svg';
+import MainCard from '../../Cards/MainCard';
+import Transitions from '../../Animations/Transitions';
+import UpgradePlanCard from '../../Cards/UpgradePlanCard';
+import User1 from '../../../assets/img/user-round.svg';
+
+// import User1 from '../../assets/img/user-round.svg';
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
 
 
@@ -82,32 +84,24 @@ const ProfileSection = () => {
     return (
         <>
             <Chip sx={{
-                    height: '48px',
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'center',
+                    mx: 1,
+                    // height: '48px',
+                    // alignItems: 'center',
+                    display: 'initial!important',
+                    // justifyContent: 'center',
                     borderRadius: '50%',
-                    padding: 0,
+                    // padding: 0,
                     transition: 'all .2s ease-in-out',
-                    borderColor: theme.palette.secondary.light,
-                    backgroundColor: theme.palette.secondary.light,
-                    '&[aria-controls="menu-list-grow"], &:hover': {
-                        borderColor: theme.palette.secondary.main,
-                        background: `${theme.palette.secondary.main}!important`,
-                        color: theme.palette.secondary.light,
-                        '& svg': {
-                            stroke: theme.palette.secondary.light
-                        }
-                    },
-                    '& .MuiChip-label': {
-                        lineHeight: 0
-                    }
+                    border: 'none',
+                    // backgroundColor: theme.palette.secondary.light,
+                    
                 }}
                 icon={
                     <Avatar
                         src={User1}
                         sx={{
                             ...theme.typography.mediumAvatar,
+                            margin: '0!important',
                             // margin: '8px 0 8px 8px !important',
                             cursor: 'pointer'
                         }}
@@ -126,6 +120,7 @@ const ProfileSection = () => {
                 color="primary"
             />
             <Popper
+            // sx={{margin: '0!important'}}
                 placement="bottom-end"
                 open={open}
                 anchorEl={anchorRef.current}

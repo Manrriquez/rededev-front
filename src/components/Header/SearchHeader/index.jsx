@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTheme, styled } from '@mui/material/styles';
 import { Avatar, Box, ButtonBase, Card, Grid, InputAdornment, OutlinedInput, Popper } from '@mui/material';
 import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
-import Transitions from '../Animations/Transitions';
+import Transitions from '../../Animations/Transitions';
 import { IconAdjustmentsHorizontal, IconSearch, IconX } from '@tabler/icons';
 import { shouldForwardProp } from '@mui/system';
 
@@ -21,6 +21,7 @@ const PopperStyle = styled(Popper, { shouldForwardProp })(({ theme }) => ({
 const OutlineInputStyle = styled(OutlinedInput, { shouldForwardProp })(({ theme }) => ({
     width: '100%',
     paddingLeft: 16,
+    height: '40px',
     borderRadius: '12px',
     paddingRight: 16,
     '& input': {
@@ -99,7 +100,7 @@ MobileSearch.propTypes = {
 };
 
 
-const SearchSection = () => {
+const SearchHeader = () => {
     const theme = useTheme();
     const [value, setValue] = useState('');
 
@@ -165,4 +166,4 @@ const SearchSection = () => {
     );
 };
 
-export default SearchSection;
+export default SearchHeader;

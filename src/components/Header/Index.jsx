@@ -9,35 +9,31 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import ProfileSection from '../ProfileSection/Index';
-import SearchSection from '../SearchSection';
+// import ProfileSection from '../ProfileHeader/Index';
+// import SearchSection from '../SearchHeader';
 import Logotype from '../../assets/img/DOKI.svg';
+import TabSocial from '../Tabs/Index';
+import NotificationHeader from './NotificationHeader';
+import ProfileSection from './ProfileHeader/Index';
+import MessageHeader from './MessageHeader';
+import SearchHeader from './SearchHeader';
+// import NotificationHeader from './NotificationHeader';
 
-
-
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) => ({
+  borderRadius: '12px',
+  '&:hover': {
+    backgroundColor: '#8f7dc726',
+    color: theme.palette.primary.main
+  }
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
+const StyledBottomNavigation = styled(BottomNavigation)(({ theme }) => ({
+
+  '.Mui-selected svg': {
+    transition: '0.6s',
+    transform: 'rotate(29deg)',
+    fontWeight: '700!important'
+  }
 }));
 
 export default function Header() {
@@ -51,28 +47,25 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: '#ffffff'}} elevation={0}>
         <Toolbar sx={{justifyContent: 'space-between'}}>
-          <Box>
+          <Box sx={{display: 'flex'}}>
             <img style={{width: '80px', marginRight: '15px'}} src={Logotype} alt="Logotipo - DOKI" />
-            <SearchSection />
+            <SearchHeader />
           </Box>
 
-          <Box>
-              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <BottomNavigation showLabels value={value} onChange={(event, newValue) => { setValue(newValue); }}>
-                      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-                      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-              </BottomNavigation>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <StyledBottomNavigation showLabels value={value} onChange={(event, newValue) => { setValue(newValue); }}>
+                      <StyledBottomNavigationAction href="@" label="Recents" icon={<RestoreIcon />} />
+                      <StyledBottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+                      <StyledBottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+                      <StyledBottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+                      <StyledBottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+              </StyledBottomNavigation>
             </Box>
-          </Box>
           
           <Box />
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <BottomNavigation showLabels value={value} onChange={(event, newValue) => { setValue(newValue); }}>
-                      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-                      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-              </BottomNavigation>
+            <Box sx={{ display: { xs: 'none', md: 'flex'}, alignItems:'center' }}>
+              <MessageHeader />
+              <NotificationHeader />
               <ProfileSection />
             </Box>
         </Toolbar>
